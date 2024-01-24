@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := BT
+BUILD_ARTIFACT_NAME := BT1_LL_Lib
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-BT.elf \
+BT1_LL_Lib.elf \
 
 MAP_FILES += \
-BT.map \
+BT1_LL_Lib.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-BT.list \
+BT1_LL_Lib.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: BT.elf secondary-outputs
+main-build: BT1_LL_Lib.elf secondary-outputs
 
 # Tool invocations
-BT.elf BT.map: $(OBJS) $(USER_OBJS) D:\OneDrive\ -\ hcmut.edu.vn\Tai\ lieu\ mon\ hoc\EE3031_LAP\ TRINH\ HE\ THONG\ NHUNG\Assignments\BT1_1\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "BT.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\OneDrive - hcmut.edu.vn\Tai lieu mon hoc\EE3031_LAP TRINH HE THONG NHUNG\Assignments\BT1_1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+BT1_LL_Lib.elf BT1_LL_Lib.map: $(OBJS) $(USER_OBJS) D:\Learning\231_ESP_Assignments\BT1\BT1_LL_Lib\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "BT1_LL_Lib.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Learning\231_ESP_Assignments\BT1\BT1_LL_Lib\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BT1_LL_Lib.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-BT.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "BT.list"
+BT1_LL_Lib.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "BT1_LL_Lib.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) BT.elf BT.list BT.map default.size.stdout
+	-$(RM) BT1_LL_Lib.elf BT1_LL_Lib.list BT1_LL_Lib.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

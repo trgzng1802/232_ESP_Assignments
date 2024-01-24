@@ -1,6 +1,6 @@
 #MicroXplorer Configuration settings - do not modify
-CAD.formats=[]
-CAD.pinconfig=Dual
+CAD.formats=
+CAD.pinconfig=
 CAD.provider=
 File.Version=6
 KeepUserPlacement=false
@@ -66,8 +66,8 @@ ProjectManager.MainLocation=Core/Src
 ProjectManager.NoMain=false
 ProjectManager.PreviousToolchain=
 ProjectManager.ProjectBuild=false
-ProjectManager.ProjectFileName=BT.ioc
-ProjectManager.ProjectName=BT
+ProjectManager.ProjectFileName=BT1_LL_Lib.ioc
+ProjectManager.ProjectName=BT1_LL_Lib
 ProjectManager.ProjectStructure=
 ProjectManager.RegisterCallBack=
 ProjectManager.StackSize=0x400
